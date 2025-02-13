@@ -12,7 +12,7 @@ const axiosPost = async (method, params = []) => {
   if (rpcSecret) {
     params.unshift(rpcSecret)
   }
-  const { data } = await axios.post("http://localhost:6798/jsonrpc", {
+  const { data } = await axios.post("http://127.0.0.1:6798/jsonrpc", {
     jsonrpc: "2.0",
     method,
     id: 1,
