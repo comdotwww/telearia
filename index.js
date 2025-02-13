@@ -48,8 +48,6 @@ bot.on("message", async (ctx) => {
         return;
       }
 
-      console.log(`@${ctx.from.username} (ID: ${ctx.from.id}): ${text}`);
-
       switch (lowerCaseCommand) {
         case "/clean":
           handleClean(ctx);

@@ -1,10 +1,17 @@
+require("dotenv").config();
+
 const axios = require("axios");
 
 const path = require("path");
 
 const { saveDirectory } = require("./utils.js");
 
+const rpcSecret = process.env.ARIA2_RPC_SECRET
+
 const axiosPost = async (method, params = []) => {
+  if (rpcSecret) {
+    params.unshift(rpcSecret)
+  }
   const { data } = await axios.post("http://localhost:6798/jsonrpc", {
     jsonrpc: "2.0",
     method,
